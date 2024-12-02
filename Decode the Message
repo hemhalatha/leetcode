@@ -1,0 +1,15 @@
+class Solution:
+    def decodeMessage(self, key: str, message: str) -> str:
+        arr = []
+        for i in key:
+            if i not in arr and i != " ":
+                arr.append(i)
+        
+        decoded_message = []
+        for i in message:
+            if i == " ":
+                decoded_message.append(" ")
+            else:
+                decoded_message.append(chr(arr.index(i) + ord("a")))
+        
+        return "".join(decoded_message)
