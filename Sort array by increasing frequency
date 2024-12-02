@@ -1,0 +1,12 @@
+from collections import Counter 
+class Solution:
+    def frequencySort(self, nums: List[int]) -> List[int]:
+        c=Counter(nums)
+        for j in range(len(nums)-1):
+            for i in range(len(nums)-1-j):
+                if c[nums[i]]>c[nums[i+1]]:
+                    nums[i],nums[i+1]=nums[i+1],nums[i]
+                elif c[nums[i]]==c[nums[i+1]] and nums[i]<nums[i+1]:
+                    nums[i],nums[i+1]=nums[i+1],nums[i]
+        return nums
+        
