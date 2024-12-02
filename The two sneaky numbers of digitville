@@ -1,0 +1,22 @@
+from collections import Counter
+class Solution:
+    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+        c=Counter(nums)
+        arr=[]
+        for i in nums:
+            if c[i]==2 and i not in arr:
+                arr.append(i)
+            if len(arr)==2:
+                break
+        return arr
+
+
+
+
+
+
+
+
+
+
+
