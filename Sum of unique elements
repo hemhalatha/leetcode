@@ -1,0 +1,10 @@
+from collections import Counter
+class Solution:
+    def sumOfUnique(self, nums: List[int]) -> int:
+        s=0
+        c=Counter(nums)
+        nums=set(nums)
+        for i in nums:
+            if c[i]==1:
+                s+=i
+        return s
