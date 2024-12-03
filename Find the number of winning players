@@ -1,0 +1,13 @@
+from collections import Counter
+class Solution:
+    def winningPlayerCount(self, n: int, pick: List[List[int]]) -> int:
+        pick1 = [tuple(p) for p in pick]
+        c=Counter(pick1)
+        t=0
+        arr=[]
+        for i in pick1:
+            if c[i]>i[0] and i[0] not in arr:
+                arr.append(i[0])
+                t+=1
+        return t
+        
