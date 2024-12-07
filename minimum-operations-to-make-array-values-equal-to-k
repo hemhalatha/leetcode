@@ -1,0 +1,19 @@
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        if min(nums)<k:
+            return -1
+        t=0
+        arr=nums
+        while max(nums)>k:
+            #if nums.count(k)==nums:
+                #return t
+            if nums.count(max(nums))==len(nums): return t+1
+            x=max(arr)
+            y=min(arr)
+            arr = [y if num == x else num for num in arr]
+            y=max(arr)
+            nums = [y if num == x else num for num in nums]
+            arr=nums
+            t+=1
+        return t
+        
