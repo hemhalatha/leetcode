@@ -1,0 +1,17 @@
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        t,s=len(list1)+len(list2),-1
+        arr=[]
+        for i in list1:
+            if i in list2:
+                s1=list1.index(i)
+                s2=list2.index(i)
+                s=s1+s2
+                if s!=-1 and s<=t:
+                    if s!=t:
+                        del arr
+                        arr=[]
+                        t=s
+                    arr.append(list1[s1])
+        return arr
+        
