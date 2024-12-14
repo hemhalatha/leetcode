@@ -1,0 +1,12 @@
+class Solution:
+    def getLucky(self, s: str, k: int) -> int:
+        s1=""
+        for i in s:
+            s1+=str(ord(i)-ord("a")+1)
+        sum1=int(s1)
+        for i in range(k):
+            sum1=0
+            for i in s1:
+                sum1+=int(i)
+            s1=str(sum1)
+        return sum1
