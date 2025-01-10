@@ -1,0 +1,24 @@
+from collections import Counter
+class Solution:
+    def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
+        arr=words2[0]
+        a=[]
+        p=Counter(arr)
+        for i in range(1,len(words2)):
+            k=Counter(words2[i])
+            for j in words2[i]:                
+                if k[j]>p[j]:
+                    arr+=j*(k[j]-p[j])
+                    p=Counter(arr)
+         
+        for i in words1:
+            l=Counter(i)
+            t=1
+            for j in arr:
+                if p[j]>l[j]:
+                    t=0
+                    break
+            if t:
+                a.append(i)
+        return a
+
