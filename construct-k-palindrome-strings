@@ -1,0 +1,14 @@
+from collections import Counter as c
+class Solution:
+    def canConstruct(self, s: str, k: int) -> bool:
+        if len(s)<k:
+            return False
+        c1=c(s)
+        t=0
+        for i in set(s):
+            if c1[i]%2!=0:
+                t+=1
+        if t>k:
+            return False
+        return True
+        
