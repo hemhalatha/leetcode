@@ -1,0 +1,33 @@
+class Solution:
+    def minimizeXor(self, num1: int, num2: int) -> int:
+        x=bin(num1)
+        y=bin(num2)
+        t=pow(10,9)
+        b2=y.count("1")
+        b1=x.count("1")
+        if b1==b2: return num1
+        t=b2-b1
+        if t>0:
+            x=x[2:]
+            x1=list(x)
+            for i in range(t):
+                if "0" in x:
+                    j=x.rindex("0")
+                    x1[j]="1"
+                else:
+                    x1.append("1")
+                x="".join(x1)
+            return int("0b"+x,2)
+
+        else:
+            x=x[2:]
+            x1=list(x)
+            for i in range(abs(t)):
+                if "1" in x:
+                    j=x.rindex("1")
+                    x1[j]="0"
+                else:
+                    x1.append("0")
+                x="".join(x1)
+            return int("0b"+x,2)
+
