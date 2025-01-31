@@ -1,0 +1,7 @@
+class Solution:
+    def findNonMinOrMax(self, nums: List[int]) -> int:
+        nums=sorted(nums)
+        for i in set(nums):
+            if i!=nums[0] and i!=nums[-1]:
+                return i 
+        return -1
